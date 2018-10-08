@@ -1,4 +1,5 @@
-#receiptTracker 
+receiptTracker 
+
 By Avishek Paul
 
 What does this do:
