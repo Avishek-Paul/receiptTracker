@@ -36,7 +36,9 @@ class receiptParser:
 		if not self.raw_tickets:
 			self.scrape_tickets()
 		
+		final_costs = []	
 		count = 1
+
 		for raw_ticket in self.raw_tickets:
 			ticket_data = raw_ticket.split()
 			
@@ -44,13 +46,15 @@ class receiptParser:
 
 			if nums:
 				total = max(nums)
+				final_costs.append(total)
 			else:
 				total = "[UNDEFINED]"
 
-			print("The total cost of receipt #{} is: ${}".format(count,total))
+			#print("The total cost of receipt #{} is: ${}".format(count,total))
 			count+=1
-				
+		
+		return final_costs
 
 if __name__=="__main__":
 	rp = receiptParser('images/')
-	rp.parse_tickets()
+	print(rp.parse_tickets())
